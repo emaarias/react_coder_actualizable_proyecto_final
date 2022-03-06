@@ -1,17 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import Menu from './components/menu/menu';
+
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
+       <Menu />
+
+      <main className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           App React Emanuel Arias
         </p>
 
-      </header>
+      </main>
+
+
     </div>
+
+
+
   );
 }
 
