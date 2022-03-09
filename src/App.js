@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Menu from './components/menu/menu';
+import ItemListContainer from './container/itemListContainer';
 
 
 function App() {
@@ -10,11 +11,7 @@ function App() {
        <Menu />
 
       <main className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          App React Emanuel Arias
-        </p>
-
+        <ItemListContainer greeting="👋 Hola próximamente seré un catálogo de productos!"/>
       </main>
 
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import Widget from '../widget/widget'
 
 function Menu() {
   return (
@@ -11,7 +12,9 @@ function Menu() {
     <li><a href="#">MUJER</a></li>
     <li><a href="#">NIÑOS</a></li>
     <li><a href="#">SALE</a></li>
+    <li><a href="#"><Widget /></a></li>
   </ul>
+
 </header>
   )
 }
