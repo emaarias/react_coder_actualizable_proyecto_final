@@ -6,6 +6,13 @@
   height: 40vmin;
   pointer-events: none;
 }
+.ss{
+  color:white;
+  padding: 8px 15px;
+  background-color: red;
+  border-radius: 5px;
+
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

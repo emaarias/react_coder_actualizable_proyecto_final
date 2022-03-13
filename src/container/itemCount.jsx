@@ -27,10 +27,13 @@ function ItemCount({stock, initial, onAdd }) {
 	return (
 	<div>
 		<button onClick={handleDec}>-</button>
-		<span>{count}</span>
+		<span> {count} </span>
 		<button onClick={handleInc}>+</button>
 		<div>
-			<button onClick={add}>Sumar al carrito</button>
+			{
+				(stock < 1) ? <h6 className="ss" >Sin Stock</h6> : <button onClick={add}>Sumar al carrito</button>
+
+			}
 		</div>
 
 	</div>
