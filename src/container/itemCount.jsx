@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Toaster, toast } from 'react-hot-toast';
 
 function ItemCount({stock, initial, onAdd }) {
 
@@ -20,8 +20,7 @@ function ItemCount({stock, initial, onAdd }) {
 	};
 
 	const add = function () {
-		alert("Se agregarán " + count + " unidades a su carrito");
-		console.log(count);
+		toast.success(`Agregó ${count} prenda/s a su carrito`);
 	}
 
 	return (
@@ -32,10 +31,22 @@ function ItemCount({stock, initial, onAdd }) {
 		<button onClick={handleInc}>+</button>
 		<div>
 			{
-				(stock < 1) ? <h6 className="ss" >Sin Stock</h6> : <button onClick={add}>Sumar al carrito</button>
-
+				(stock < 1) ? <h6 className="ss" >Sin Stock</h6> : <button onClick={()=>add()}>Sumar al carrito</button>
 			}
 		</div>
+
+        <Toaster
+			position="top-right"
+			reverseOrder={true}
+			toastOptions={{
+				style:{
+					top:'60px',
+					fontSize: '14px',
+					position:"relative",
+				}
+			  }}
+
+		/>
 
 	</div>
   )

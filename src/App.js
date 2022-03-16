@@ -5,6 +5,7 @@ import ItemListContainer from './container/itemListContainer';
 import ItemCount from './container/itemCount';
 
 
+
 function App() {
   return (
 
@@ -15,6 +16,7 @@ function App() {
       <main className="App-header">
         <ItemListContainer greeting="👋 Hola próximamente seré un catálogo de productos!" />
         <ItemCount initial={1} stock={10}/>
+
       </main>
 
 
