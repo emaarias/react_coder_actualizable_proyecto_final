@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
 body {
 	margin: 0;
-	font-family: Helvetica, sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	background-color: #f4f4f4;
   }
 
@@ -44,6 +46,11 @@ body {
 	font-size: 2em;
 	padding: 10px 20px;
 	text-decoration: none;
+	max-height: 40px;
+  }
+
+  .logoSize{
+	  max-height: 40px;
   }
 
   /* menu */
