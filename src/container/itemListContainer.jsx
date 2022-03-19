@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemCount from '../container/itemCount';
 import './card.css';
 import {getFetch} from '../helpers/getFetch';
-
+import { Toaster } from 'react-hot-toast';
 
 function ItemListContainer({ greeting }) {
 
@@ -31,26 +31,6 @@ function ItemListContainer({ greeting }) {
         :
         prod.map((producto) =>
 
-          /*   <div
-               key={producto.id}
-              className='col-md-2'
-            >
-              <div className="card w-100 mt-5" >
-                <div className="card-header">
-                  {`${producto.title} - ${producto.category}`}
-                </div>
-                <div className="card-body">
-                  <img src={producto.imageUrl} alt='' className='w-50' />
-                  {producto.price}
-                </div>
-                <div className="card-footer">
-
-                <ItemCount initial={1} stock={10}/>
-
-                </div>
-              </div>
-            </div> */
-
           <div key={producto.id} className="container-fluid bg-trasparent my-4 p-3" style={{position: 'relative'}}>
             <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
               <div className="col">
@@ -63,7 +43,10 @@ function ItemListContainer({ greeting }) {
                 </div>
               </div>
             </div>
+            <Toaster position="top-right" reverseOrder={true}	toastOptions={{style:{top:'60px',fontSize: '14px',position:"relative",}}} />
           </div>
+
+
         )
       }
       {/* <button onClick={() => { setBool(!bool) }}>Ver Todos los productos</button> */}

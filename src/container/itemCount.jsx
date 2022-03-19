@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 function ItemCount({stock, initial, onAdd }) {
 
@@ -36,18 +36,7 @@ function ItemCount({stock, initial, onAdd }) {
 			}
 		</div>
 
-        <Toaster
-			position="top-right"
-			reverseOrder={true}
-			toastOptions={{
-				style:{
-					top:'60px',
-					fontSize: '14px',
-					position:"relative",
-				}
-			  }}
 
-		/>
 
 	</div>
   )
