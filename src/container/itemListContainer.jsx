@@ -3,6 +3,9 @@ import './card.css';
 import { getFetch } from '../helpers/getFetch';
 import { Toaster } from 'react-hot-toast';
 import Item from '../components/item/item';
+import ItemDetail from '../components/itemDetail/itemDetail';
+import ItemDetailContainer from '../components/itemDetailContainer/itemDetailContainer';
+
 
 function ItemListContainer({ greeting }) {
 
@@ -29,8 +32,8 @@ function ItemListContainer({ greeting }) {
       {
         loading ? <h2>Cargando...</h2>
           :
-          prod.map((producto) => <Item producto={producto} key={producto.id} />
-      )
+          prod.map((producto) => <Item producto={producto} key={producto.id} />)
+
     }
 
     <Toaster position='top/right'
