@@ -21,7 +21,8 @@ function App() {
         <main className="App-header">
     <Routes>
           <Route path='/' element ={<ItemListContainer greeting="👋 Hola próximamente seré un catálogo de productos!" />}/>
-          <Route path='detalle' element ={<ItemDetailContainer />}/>
+          <Route path='/gender/:idGender' element ={<ItemListContainer greeting="👋 Hola próximamente seré un catálogo de productos!" />}/>
+          <Route path='detalle/:idDetail' element ={<ItemDetailContainer />}/>
           <Route path='/*' element ={<Navigate to='/' />}/>
           <Route path='cart' element ={<Cart />}/>
 

@@ -12,11 +12,11 @@ function Menu() {
   <label className="menu-icon" for="menu-btn"><span className="navicon"></span></label>
   <ul className="menu">
     {/* <li><a href="#">HOMBRE</a></li> */}
-    <li><NavLink to='/'>HOMBRE</NavLink></li>
+    <li><NavLink to='gender/men'>HOMBRE</NavLink></li>
     {/* <li><a href="#">MUJER</a></li> */}
-    <li><NavLink to='/'>MUJER</NavLink></li>
+    <li><NavLink to='gender/women'>MUJER</NavLink></li>
     {/* <li><a href="#">NIÑOS</a></li> */}
-    <li><NavLink to='/'>NIÑOS</NavLink></li>
+    <li><NavLink to='gender/kids'>NIÑOS</NavLink></li>
     {/* <li><a href="#">SALE</a></li> */}
     {/* <li><a href="#"><Widget /></a></li> */}
     <li><NavLink to='cart'><Widget /></NavLink></li>
