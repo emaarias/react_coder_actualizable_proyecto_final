@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import Item from '../components/item/item';
 import ItemDetail from '../components/itemDetail/itemDetail';
 import ItemDetailContainer from '../components/itemDetailContainer/itemDetailContainer';
+import { useParams } from 'react-router-dom';
 
 
 function ItemListContainer({ greeting }) {
@@ -13,19 +14,36 @@ function ItemListContainer({ greeting }) {
   const [prod, setProd] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const {idGender} = useParams();
+
+
 
   useEffect(() => {
-    getFetch.then((resp) => {
-      setProd(resp);
-    }).catch((err) => {
-      console.log(err);
-    }).finally(() => {
-      console.log(setLoading(false));
-    })
-      ;
-  }, []);
 
-  console.log(prod);
+    if (idGender) {
+      getFetch.then((resp) => {
+        setProd(resp.filter(prodG => prodG.gender === idGender));
+      }).catch((err) => {
+        console.log(err);
+      }).finally(() => {
+        console.log(setLoading(false));
+      })
+        ;
+
+    }else{
+      getFetch.then((resp) => {
+        setProd(resp);
+      }).catch((err) => {
+        console.log(err);
+      }).finally(() => {
+        console.log(setLoading(false));
+      })
+        ;
+    }
+
+  }, [idGender]);
+
+  console.log(idGender);
   return (
     <>
       <div>{greeting}</div>
