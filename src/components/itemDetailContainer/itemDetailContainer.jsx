@@ -7,11 +7,12 @@ function ItemDetailContainer() {
 
 	const [producto, setProducto] = useState({});
 	const [loading, setLoading] = useState(true);
+	const {idDetail} = useParams();
 
-	
+
 	useEffect(() => {
 		getFetch.then((resp) => {
-			setProducto(resp.find(prodD => prodD.id === '1'));
+			setProducto(resp.find(prodD => prodD.id === idDetail ));
 		}).catch((err) => {
 			console.log(err);
 		}).finally(() => {
