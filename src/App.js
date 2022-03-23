@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Menu from './components/menu/menu';
 import ItemListContainer from './container/itemListContainer';
@@ -11,16 +12,24 @@ import ItemDetailContainer from './components/itemDetailContainer/itemDetailCont
 function App() {
   return (
 
-    <div className="App">
+    <BrowserRouter>
 
-      <Menu />
-      <main className="App-header">
-        <ItemListContainer greeting="👋 Hola próximamente seré un catálogo de productos!" />
-        <ItemDetailContainer/>
+      <div className="App">
+        <Menu />
 
-      </main>
+        <main className="App-header">
+    <Routes>
+          <Route path='/' element ={<ItemListContainer greeting="👋 Hola próximamente seré un catálogo de productos!" />}/>
+          <Route path='detalle' element ={<ItemDetailContainer />}/>
+          <Route path='/*' element ={<Navigate to='/' />}/>
 
-    </div>
+
+
+    </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+
   );
 }
 
