@@ -9,7 +9,7 @@ function ItemDetailContainer() {
 
 	useEffect(() => {
 		getFetch.then((resp) => {
-			setProducto(resp.find(prodD => prodD.id == 1));
+			setProducto(resp.find(prodD => prodD.id === '1'));
 		}).catch((err) => {
 			console.log(err);
 		}).finally(() => {
