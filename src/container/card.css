@@ -51,9 +51,45 @@ h2 {
 }
 
 .card h2 {
-    font-size: 1rem
+    font-size: 1rem;
 }
 
+@keyframes taadaa {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+.vermas{
+    display: none;
+    position: absolute;
+    top:10px ;
+    right: 10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    animation: taadaa 2s;
+}
+
+.lupa{
+    top: 11px;
+    position: relative;
+
+
+}
+
+.sombra{
+    -webkit-box-shadow: 5px 9px 3px -2px rgba(255,255,255,0.58);
+    box-shadow: 5px 9px 3px -2px rgba(255,255,255,0.58);
+}
+.card:hover .vermas{
+    display: block;
+}
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06)
