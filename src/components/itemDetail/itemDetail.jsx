@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import ItemCount from '../../container/itemCount';
+import { Toaster } from 'react-hot-toast';
 
 function ItemDetail({producto}) {
   return (
@@ -11,11 +13,26 @@ function ItemDetail({producto}) {
 				<div className="card-body">
 					<div className="clearfix mb-3"> <span className="float-start badge rounded-pill bg-primary">{producto.category}</span> <span className="float-end price-hp">$ {producto.price}</span> </div>
 					<h5 className="card-title" style={{ color: '#000' }}>{producto.brand} - {producto.title}</h5>
-				
+					<div className="text-center my-4"> <ItemCount initial={1} stock={producto.stock} /> </div>
+
 				</div>
 			</div>
 		</div>
 	</div>
+
+    <Toaster position='top/right'
+    reverseOrder='true'
+    toastOptions={
+      {
+        style:{
+          top:'60px',
+          fontSize:'14px',
+          position: 'relative'
+
+        }
+      }
+    }
+    />
 
 </div>
   )

@@ -20,7 +20,7 @@ function Item({ producto }) {
 						<div className="card-body">
 							<div className="clearfix mb-3"> <span className="float-start badge rounded-pill bg-primary">{producto.category}</span> <span className="float-end price-hp">$ {producto.price}</span> </div>
 							<h5 className="card-title" style={{ color: '#000' }}>{producto.brand} - {producto.title}</h5>
-							<div className="text-center my-4"> <ItemCount initial={1} stock={producto.stock} /> </div>
+							{/* <div className="text-center my-4"> <ItemCount initial={1} stock={producto.stock} /> </div> */}
 						</div>
 					</div>
 				</div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './card.css';
 import { getFetch } from '../helpers/getFetch';
-import { Toaster } from 'react-hot-toast';
+/* import { Toaster } from 'react-hot-toast'; */
 import Item from '../components/item/item';
 import ItemDetail from '../components/itemDetail/itemDetail';
 import ItemDetailContainer from '../components/itemDetailContainer/itemDetailContainer';
@@ -54,7 +54,7 @@ function ItemListContainer({ greeting }) {
 
     }
 
-    <Toaster position='top/right'
+{/*     <Toaster position='top/right'
     reverseOrder='true'
     toastOptions={
       {
@@ -66,7 +66,7 @@ function ItemListContainer({ greeting }) {
         }
       }
     }
-    />
+    /> */}
 
     </>
 
