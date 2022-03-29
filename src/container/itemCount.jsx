@@ -42,9 +42,6 @@ function ItemCount({stock, initial, onAdd }) {
 				<Link to='/cart'>
 					<button className="text-center my-4 btn btn-success" onClick={()=>console.log('Yendo al carrito')}>IR AL CARRITO</button>
 				</Link>
-
-
-
 			}
 		</div>
 
