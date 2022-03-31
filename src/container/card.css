@@ -50,8 +50,25 @@ h2 {
     /*padding: 30px*/
 }
 
+
+.imgCart{
+    width: 100%;
+    max-height: 500px;
+    max-width: 500px;
+    object-fit: contain;
+
+}
 .card h2 {
     font-size: 1rem;
+}
+
+
+.cardMia{
+    background-color: #fff;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    color: #212529;
 }
 
 @keyframes taadaa {

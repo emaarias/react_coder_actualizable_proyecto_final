@@ -8,11 +8,16 @@ function CartContextProvider({children}) {
 	const addToCart = (item)=>{
 		setCartList([...cartList, item])
 	}
+
+const vaciarCarrito = () =>{
+	setCartList([]);
+}
   return (
 	<div>
 		<CartContext.Provider value={{
 			cartList,
-			addToCart
+			addToCart,
+			vaciarCarrito
 		}}>
 		{children}
 		</CartContext.Provider>
