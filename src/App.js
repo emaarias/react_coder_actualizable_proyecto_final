@@ -5,18 +5,21 @@ import Menu from './components/menu/menu';
 import ItemListContainer from './container/itemListContainer';
 import ItemDetailContainer from './components/itemDetailContainer/itemDetailContainer';
 import Cart from './components/cart/cart';
-import { CartContext } from './context/cartContext';
+import CartContextProvider from './context/cartContext';
+
 
 /* import ItemCount from './container/itemCount'; */
 
-console.log('cart context ',CartContext);
+/* console.log('cart context ',CartContext); */
 
 function App() {
   return (
 
     <BrowserRouter>
 
-      <CartContext.Provider>
+
+        <CartContextProvider>
+
 
 
         <div className="App">
@@ -35,8 +38,8 @@ function App() {
           </main>
         </div>
 
-      </CartContext.Provider>
 
+        </CartContextProvider>
 
     </BrowserRouter>
 
