@@ -35,14 +35,19 @@ function ItemCount({ stock, initial, onAdd, producto }) {
 
 	return (
 		<div>
-			<h3 style={{ color: '#000' }}>Cantidad:</h3>
-			<button onClick={handleDec}>-</button>
-			<span style={{ color: '#000' }}> {count} </span>
-			<button onClick={handleInc}>+</button>
-			<div>
+
+
 				{
 					inputType === 'button' ?
-						(stock < 1) ? <h6 className="ss" >Sin Stock</h6> : <button className="text-center my-4 btn btn-warning" onClick={() => add()}>+ AL CARRITO</button>
+						<>
+							<h3 style={{ color: '#000' }}>Cantidad:</h3>
+							<button onClick={handleDec}>-</button>
+							<span style={{ color: '#000' }}> {count} </span>
+							<button onClick={handleInc}>+</button>
+							<div>
+							{(stock < 1) ? <h6 className="ss" >Sin Stock</h6> : <button className="text-center my-4 btn btn-warning" onClick={() => add()}>+ AL CARRITO</button>}
+							</div>
+						</>
 						:
 						<div className="container">
 							<Link to='/cart'>
@@ -55,7 +60,7 @@ function ItemCount({ stock, initial, onAdd, producto }) {
 
 						</div>
 				}
-			</div>
+
 
 
 		</div>
