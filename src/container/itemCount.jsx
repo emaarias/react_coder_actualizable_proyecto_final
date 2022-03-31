@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from 'react-hot-toast';
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/cartContext";
 
-function ItemCount({stock, initial, onAdd }) {
+function ItemCount({stock, initial, onAdd ,producto}) {
+
+
+	const {addToCart,cartList} = useContext(CartContext);
 
 	const [count, setCount] =  useState(initial);
 
@@ -23,8 +27,9 @@ function ItemCount({stock, initial, onAdd }) {
 	const add = function () {
 		toast.success(`Agregó ${count} prenda/s a su carrito`);
 		setInputType('input');
+		addToCart({...producto, cantidad: count})
 	}
-
+	console.log('CartList',cartList);
 
 	const [inputType, setInputType] =  useState('button');
 
