@@ -15,7 +15,7 @@ function Cart() {
 
       </>
       :
-      <div className="container">
+      <div className="container" style={{ marginTop: '70px' }}>
 
         {cartList.map(prod =>
 
