@@ -6,9 +6,11 @@ import ItemCount from '../../container/itemCount';
 function Item({ producto }) {
 	return (
 
-		<div className="container-fluid bg-trasparent my-4 p-3" style={{ position: 'relative' }}>
-			<div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-				<div className="col">
+
+
+			//<div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+			<div className="" style={{flexBasis:'350px',margin:'10px'}}>
+				<div className="">
 					<div className="card h-100 shadow-sm">
 						<Link to={`/detalle/${producto.id}`}>
 							<span className="card-img-top float-start badge bg-primary vermas sombra" ><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-search lupa" viewBox="0 0 16 16">
@@ -26,7 +28,6 @@ function Item({ producto }) {
 				</div>
 			</div>
 
-		</div>
 	)
 }
 

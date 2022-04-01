@@ -50,8 +50,9 @@ function ItemListContainer({ greeting }) {
       {
         loading ? <h2>Cargando...</h2>
           :
-          prod.map((producto) => <Item producto={producto} key={producto.id} />)
-
+          <div className="container-fluid bg-trasparent my-4 p-3" style={{ display:'flex', flexDirection:'row' , flexWrap:'wrap', justifyContent:'center', alignContent:'center' }}>
+          {prod.map((producto) => <Item producto={producto} key={producto.id} />)}
+          </div>
     }
 
 {/*     <Toaster position='top/right'
