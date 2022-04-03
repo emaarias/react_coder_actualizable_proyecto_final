@@ -70,6 +70,32 @@ h2 {
     border-radius: 1rem;
     color: #212529;
 }
+.cardMiaTot{
+
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    color: #fff;
+
+    font-size: 1.5rem;
+    list-style: 2rem;
+
+}
+
+.cTot{
+
+    font-weight:800;
+    font-size: 2rem;
+
+}
+
+.botonDelete{
+
+    background: #fff;
+    border: none;
+    top: -4px;
+    position: relative;
+}
 
 @keyframes taadaa {
     0% {
