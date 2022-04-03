@@ -97,6 +97,13 @@ h2 {
     position: relative;
 }
 
+.cartCount{
+    position: relative;
+    left: -5px;
+    top: -8px;
+
+}
+
 @keyframes taadaa {
     0% {
       opacity: 0;
