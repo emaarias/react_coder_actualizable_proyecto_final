@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './card.css';
 import { getFetch } from '../helpers/getFetch';
-/* import { Toaster } from 'react-hot-toast'; */
 import Item from '../components/item/item';
-import ItemDetail from '../components/itemDetail/itemDetail';
-import ItemDetailContainer from '../components/itemDetailContainer/itemDetailContainer';
 import { useParams } from 'react-router-dom';
 
 
@@ -54,20 +51,6 @@ function ItemListContainer({ greeting }) {
           {prod.map((producto) => <Item producto={producto} key={producto.id} />)}
           </div>
     }
-
-{/*     <Toaster position='top/right'
-    reverseOrder='true'
-    toastOptions={
-      {
-        style:{
-          top:'60px',
-          fontSize:'14px',
-          position: 'relative'
-
-        }
-      }
-    }
-    /> */}
 
     </>
 
