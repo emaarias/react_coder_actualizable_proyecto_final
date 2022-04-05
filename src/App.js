@@ -6,6 +6,10 @@ import ItemListContainer from './container/itemListContainer';
 import ItemDetailContainer from './components/itemDetailContainer/itemDetailContainer';
 import Cart from './components/cart/cart';
 import CartContextProvider from './context/cartContext';
+import { getFirestoreApp } from './firebase/config';
+
+/* Cargo firestore para tenerlo disponible ne todo el proyecto */
+getFirestoreApp()
 
 
 /* import ItemCount from './container/itemCount'; */
