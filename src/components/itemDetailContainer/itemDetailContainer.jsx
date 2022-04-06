@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ItemDetail from '../itemDetail/itemDetail';
 import { getFetch } from "../../helpers/getFetch";
 import { useParams } from 'react-router-dom';
+import { getDoc, getFirestore , doc } from "firebase/firestore";
 
 function ItemDetailContainer() {
 
@@ -10,9 +11,15 @@ function ItemDetailContainer() {
 	const {idDetail} = useParams();
 
 
+
+	const db = getFirestore();
+    const queryDoc = doc(db,'products',idDetail);
+
+
 	useEffect(() => {
-		getFetch.then((resp) => {
-			setProducto(resp.find(prodD => prodD.id === idDetail ));
+
+		getDoc(queryDoc).then((resp) => {
+			setProducto({ id:resp.id , ...resp.data()});
 		}).catch((err) => {
 			console.log(err);
 		}).finally(() => {
@@ -21,7 +28,6 @@ function ItemDetailContainer() {
 			;
 	}, []);
 
-	console.log(producto);
 
 	return (
 		<>
