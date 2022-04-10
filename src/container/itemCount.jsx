@@ -25,7 +25,7 @@ function ItemCount({ stock, initial, onAdd, producto }) {
 	};
 
 	const add = function () {
-		toast.success(`Agregó ${count} prenda/s a su carrito`);
+		toast.success(`Agregó ${count} prenda/s a su carrito`,{duration: 1000});
 		setInputType('input');
 		addToCart({ ...producto, cantidad: count})
 

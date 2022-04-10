@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { toast } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 function Cart() {
   const { cartList, vaciarCarrito, deleteOne, sumaTotal } = useContext(CartContext);
@@ -23,10 +25,21 @@ function Cart() {
     const db = getFirestore();
     const queryCollection = collection(db,'orders');
     addDoc(queryCollection, orden)
+    .then(({ id }) => toast.success(`Su ID de su Orden es: ${id}`,{duration: 5000}))
+    .catch((err) => {
+			console.log(err);
+		}).finally(() => {
+			setTimeout(() => {
+        vaciarCarrito();
+      }, 5500);
+		})
+			;
     /*  .then(resp => {console.log('RESP: ',resp)}) */
-    .then(({ id }) => alert(id))
-
-
+    /* .then(({ id }) => toast.success(`Su ID de su Orden es: ${id}`)) */
+    /* toast.success(`Agregó ${count} prenda/s a su carrito`); */
+   /*  setTimeout(() => {
+      vaciarCarrito();
+    }, 6500); */
     console.log('ORDEN: ', orden)
   };
 
@@ -85,7 +98,19 @@ function Cart() {
         </div>
         <br />
 
+        <Toaster position='top/center'
+    reverseOrder='true'
+    toastOptions={
+      {
+        style:{
+          top:'60px',
+          fontSize:'14px',
+          position: 'relative'
 
+        }
+      }
+    }
+    />
 
 
       </div>
