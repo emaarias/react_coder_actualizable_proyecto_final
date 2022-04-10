@@ -5,6 +5,21 @@ import { CartContext } from '../../context/cartContext';
 function Cart() {
   const { cartList, vaciarCarrito, deleteOne, sumaTotal } = useContext(CartContext);
 
+  const generarOrden = (e)=>{
+    e.preventDefault();
+    let orden = {};
+    orden.buyer = {};
+
+    orden.items = cartList.map(cartItem=>{
+      const id = cartItem.id ;
+      const title = cartItem.title ;
+      const price = cartItem.price * cartItem.cantidad ;
+
+      return{id,title,price}
+    })
+    console.log('ORDEN: ',orden)
+  };
+
   return (
     (cartList.length === 0) ?
       <>
