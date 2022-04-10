@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 function Cart() {
   const { cartList, vaciarCarrito, deleteOne, sumaTotal } = useContext(CartContext);
@@ -8,7 +9,8 @@ function Cart() {
   const generarOrden = (e) => {
     e.preventDefault();
     let orden = {};
-    orden.buyer = {};
+    orden.buyer = {name:'Emanuel',email:'emanuel.arias@groovinads.com',phone:'3562671975'};
+    orden.total = sumaTotal();
 
     orden.items = cartList.map(cartItem => {
       const id = cartItem.id;
@@ -17,8 +19,19 @@ function Cart() {
 
       return { id, title, price }
     })
+
+    const db = getFirestore();
+    const queryCollection = collection(db,'orders');
+    addDoc(queryCollection, orden)
+    /*  .then(resp => {console.log('RESP: ',resp)}) */
+    .then(({ id }) => alert(id))
+
+
     console.log('ORDEN: ', orden)
   };
+
+
+
 
   return (
     (cartList.length === 0) ?
