@@ -5,19 +5,19 @@ import { CartContext } from '../../context/cartContext';
 function Cart() {
   const { cartList, vaciarCarrito, deleteOne, sumaTotal } = useContext(CartContext);
 
-  const generarOrden = (e)=>{
+  const generarOrden = (e) => {
     e.preventDefault();
     let orden = {};
     orden.buyer = {};
 
-    orden.items = cartList.map(cartItem=>{
-      const id = cartItem.id ;
-      const title = cartItem.title ;
-      const price = cartItem.price * cartItem.cantidad ;
+    orden.items = cartList.map(cartItem => {
+      const id = cartItem.id;
+      const title = cartItem.title;
+      const price = cartItem.price * cartItem.cantidad;
 
-      return{id,title,price}
+      return { id, title, price }
     })
-    console.log('ORDEN: ',orden)
+    console.log('ORDEN: ', orden)
   };
 
   return (
@@ -55,6 +55,13 @@ function Cart() {
           <div className="col-xl-2 col-sm-2 cTot">${sumaTotal()}</div>
           <div className="col-xl-1 col-sm-1" ></div>
         </div>
+        <div className="row cardMiaGenOr">
+          <button type="button" className="btn btn-outline-info mt-1 col-12" style={{ padding: '1rem' }} onClick={generarOrden}>GENERAR ORDEN</button>
+        </div>
+
+
+
+        <br />
 
         <div className="d-flex justify-content-end">
           <Link to='/'>
@@ -64,6 +71,8 @@ function Cart() {
 
         </div>
         <br />
+
+
 
 
       </div>

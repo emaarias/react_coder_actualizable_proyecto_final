@@ -104,6 +104,11 @@ h2 {
 
 }
 
+.cardMiaGenOr{
+    margin: 0.5rem;
+    border-radius: 1rem;
+}
+
 @keyframes taadaa {
     0% {
       opacity: 0;
