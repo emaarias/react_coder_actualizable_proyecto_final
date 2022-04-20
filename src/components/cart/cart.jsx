@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
@@ -6,12 +6,15 @@ import { toast } from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
 
 function Cart() {
+
+  const [dataForm, setDataForm] = useState({ name: '', phone: '', email: '' });
+
   const { cartList, vaciarCarrito, deleteOne, sumaTotal } = useContext(CartContext);
 
   const generarOrden = (e) => {
     e.preventDefault();
     let orden = {};
-    orden.buyer = {name:'Emanuel',email:'emanuel.arias@groovinads.com',phone:'3562671975'};
+    orden.buyer = dataForm;
     orden.total = sumaTotal();
 
     orden.items = cartList.map(cartItem => {
@@ -23,27 +26,27 @@ function Cart() {
     })
 
     const db = getFirestore();
-    const queryCollection = collection(db,'orders');
+    const queryCollection = collection(db, 'orders');
     addDoc(queryCollection, orden)
-    .then(({ id }) => toast.success(`Su ID de su Orden es: ${id}`,{duration: 5000}))
-    .catch((err) => {
-			console.log(err);
-		}).finally(() => {
-			setTimeout(() => {
-        vaciarCarrito();
-      }, 5500);
-		})
-			;
-    /*  .then(resp => {console.log('RESP: ',resp)}) */
-    /* .then(({ id }) => toast.success(`Su ID de su Orden es: ${id}`)) */
-    /* toast.success(`Agregó ${count} prenda/s a su carrito`); */
-   /*  setTimeout(() => {
-      vaciarCarrito();
-    }, 6500); */
+      .then(({ id }) => toast.success(`Su ID de su Orden es: ${id}`, { duration: 5000 }))
+      .catch((err) => {
+        console.log(err);
+      }).finally(() => {
+        setTimeout(() => {
+          vaciarCarrito();
+        }, 5500);
+      })
+      ;
+
     console.log('ORDEN: ', orden)
   };
 
-
+  const handleChange = (e) => {
+    setDataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value
+    })
+  }
 
 
   return (
@@ -81,11 +84,24 @@ function Cart() {
           <div className="col-xl-2 col-sm-2 cTot">${sumaTotal()}</div>
           <div className="col-xl-1 col-sm-1" ></div>
         </div>
+
         <div className="row cardMiaGenOr">
-          <button type="button" className="btn btn-outline-info mt-1 col-12" style={{ padding: '1rem' }} onClick={generarOrden}>GENERAR ORDEN</button>
+
+          <div className='border border-white mt-1 col-12' style={{ padding: '1rem' }} > ⭐︎&nbsp;&nbsp;FINALICE SU COMPRA&nbsp;&nbsp;⭐︎ </div>
+          <div className='border border-white'>
+            <form onSubmit={generarOrden}>
+              <input type="text" name='name' placeholder='Intrduzca su Nombre aquí ...'
+                value={dataForm.name} onChange={handleChange} className="form-control mt-4 miInput" required /> <br />
+              <input type="text" name='phone' placeholder='Intrduzca su Telefono aquí ...'
+                value={dataForm.phone} onChange={handleChange} className="form-control miInput" required /> <br />
+              <input type="email" name='email' placeholder='Intrduzca su Email aquí ...'
+                value={dataForm.email} onChange={handleChange} className="form-control miInput" required /> <br />
+              <button type="button" className="btn btn-outline-info mt-1 mb-3 col-12" style={{ padding: '1rem' }} onClick={generarOrden}>GENERAR ORDEN</button>
+
+            </form>
+          </div>
+
         </div>
-
-
 
         <br />
 
@@ -99,18 +115,18 @@ function Cart() {
         <br />
 
         <Toaster position='top/center'
-    reverseOrder='true'
-    toastOptions={
-      {
-        style:{
-          top:'60px',
-          fontSize:'14px',
-          position: 'relative'
+          reverseOrder='true'
+          toastOptions={
+            {
+              style: {
+                top: '60px',
+                fontSize: '14px',
+                position: 'relative'
 
-        }
-      }
-    }
-    />
+              }
+            }
+          }
+        />
 
 
       </div>

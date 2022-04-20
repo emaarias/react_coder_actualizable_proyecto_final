@@ -109,6 +109,15 @@ h2 {
     border-radius: 1rem;
 }
 
+.miInput{
+    background-color: transparent;
+    color: white;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-radius: 0px ;
+}
+
 @keyframes taadaa {
     0% {
       opacity: 0;
