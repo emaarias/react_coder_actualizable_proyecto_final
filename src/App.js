@@ -12,19 +12,12 @@ import { getFirestoreApp } from './firebase/config';
 getFirestoreApp()
 
 
-/* import ItemCount from './container/itemCount'; */
-
-/* console.log('cart context ',CartContext); */
-
 function App() {
   return (
 
     <BrowserRouter>
 
-
         <CartContextProvider>
-
-
 
         <div className="App">
           <Menu />

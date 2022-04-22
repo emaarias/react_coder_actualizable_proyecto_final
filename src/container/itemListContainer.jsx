@@ -17,72 +17,6 @@ function ItemListContainer({ greeting }) {
   const { idGender } = useParams();
 
 
-  /*FUnciona correctament con firebase .. falta el filtro por caegoria o (idGender) */
-  /*   useEffect(() => {
-
-      const db = getFirestore() ;
-      const queryCollection = collection(db,'products');
-      getDocs(queryCollection)
-        .then(resp => setProdFB(resp.docs.map(producto =>( {id: Number(producto.id), ...producto.data() } ))))
-        .catch((err) => {
-          console.log(err);
-        }).finally(() => {
-          console.log(setLoading(false));
-        })
-      }, [idGender]);
-
-    */
-
-  /*FUnciona correctament con firebase .. CON el filtro por caegoria o (idGender) */
-  /*
-
-      const db = getFirestore() ;
-    const queryCollection = collection(db,'products');
-    const queryFilter = query(queryCollection , where('gender','==',idGender));
-
-
-
-    getDocs(queryFilter)
-      .then(resp => setProdFB(resp.docs.map(producto =>( {id: Number(producto.id), ...producto.data() } ))))
-      .catch((err) => {
-        console.log(err);
-      }).finally(() => {
-        console.log(setLoading(false));
-      })
-    }, [idGender]);
-
-  */
-
-
-
-  /*   useEffect(() => {
-
-      if (idGender) {
-        getFetch.then((resp) => {
-          setProd(resp.filter(prodG => prodG.gender === idGender));
-        }).catch((err) => {
-          console.log(err);
-        }).finally(() => {
-          console.log(setLoading(false));
-        })
-          ;
-
-      }else{
-        getFetch.then((resp) => {
-          setProd(resp);
-        }).catch((err) => {
-          console.log(err);
-        }).finally(() => {
-          console.log(setLoading(false));
-        })
-          ;
-      }
-
-    }, [idGender]);
-   */
-
-
-
   useEffect(() => {
 
     const db = getFirestore();
@@ -90,7 +24,7 @@ function ItemListContainer({ greeting }) {
 
 
     if (idGender) {
-      
+
       const queryFilter = query(queryCollection, where('gender', '==', idGender));
       getDocs(queryFilter)
         .then(resp => setProdFB(resp.docs.map(producto => ({ id: Number(producto.id), ...producto.data() }))))
@@ -116,7 +50,6 @@ function ItemListContainer({ greeting }) {
   }, [idGender]);
 
 
-  console.log(prodFB);
   return (
     <>
       <div>{greeting}</div>

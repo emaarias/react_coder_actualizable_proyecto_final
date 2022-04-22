@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { CartContext } from '../../context/cartContext'
 
 function Widget() {
-  //const { cantidad } = useContext(CartContext);
   const {cantidad,cartList} = useContext(CartContext)
   return (
 	<>

@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-control:disabled, .form-control[readonly] {
+   background-color: transparent;
+  opacity: 1;
+  border-bottom: transparent;
+  text-align: center ;
+}

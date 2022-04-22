@@ -13,14 +13,14 @@ function ItemCount({ stock, initial, onAdd, producto }) {
 	function handleInc() {
 		if (count < stock) {
 			setCount(count + 1);
-			//console.log(count);
+
 		}
 	};
 
 	function handleDec() {
 		if (count > initial) {
 			setCount(count - 1);
-			//console.log(count);
+
 		}
 	};
 
@@ -30,7 +30,7 @@ function ItemCount({ stock, initial, onAdd, producto }) {
 		addToCart({ ...producto, cantidad: count})
 
 	}
-	console.log('CartList', cartList);
+	
 
 	const [inputType, setInputType] = useState('button');
 
